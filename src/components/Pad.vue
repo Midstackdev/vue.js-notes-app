@@ -1,15 +1,15 @@
 <template>
 	<div class="pad">
-		<input type="text" class="pad__title" placeholder="Untitled note" v-model="note.title">
+		<input type="text" class="pad__title" placeholder="Untitled note" v-model="note.title" @keydown="save">
 
-		<textarea class="pad__text" placeholder="Start writing..." v-model="note.body">
+		<textarea class="pad__text" placeholder="Start writing..." v-model="note.body" @keydown="save">
 			
 		</textarea>
 
 		<footer class="pad__footer">
 			<ul class="pad__footer-items">
 				<li class="pad__footer-item">Words: x</li>
-				<li class="pad__footer-item pad__footer-item--right">Last saved: xx/xx</li>
+				<li class="pad__footer-item pad__footer-item--right">Last saved: {{lastSaved}}</li>
 			</ul>
 		</footer>
 	</div>
@@ -17,13 +17,29 @@
 
 
 <script>
-	import { mapGetters } from 'vuex'
+	import { mapGetters, mapActions } from 'vuex'
 
 	export default {
 		computed: {
 			...mapGetters([
-				'note'
+				'note',
+				'lastSaved'
 			])
+		},
+
+		methods: {
+			...mapActions([
+				'saveNote',
+				'startSaveTimeout'
+			]),
+			save() {
+				if(!this.note.id){
+					this.saveNote()
+					return 
+				}
+
+				this.startSaveTimeout()
+			}
 		}
 	}
 </script>
