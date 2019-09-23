@@ -1,4 +1,6 @@
-# notes
+# A Simple and Elegant notes App
+The app is built with Vue.js and uses Vuex for state mamanegement.
+The note app uses local Storage to store data.
 
 ## Project setup
 ```
@@ -13,17 +15,4 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+````
