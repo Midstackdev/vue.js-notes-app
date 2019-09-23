@@ -1,7 +1,7 @@
 import * as mutations from './mutation-types'
 
 export const saveNote = ({ commit, dispatch, state }) => {
-	// touch last saved timestamp
+	
 	commit(mutations.TOUCH_LAST_SAVED)
 
 	if(state.note.id === null) {
@@ -10,6 +10,16 @@ export const saveNote = ({ commit, dispatch, state }) => {
 
 		commit(mutations.PREPEND_TO_NOTES, state.note)
 	}
+
+	dispatch('storeNotes')
+}
+
+export const storeNotes = ({ state }) => {
+	localStorage.setItem('notes', JSON.stringify(state.notes))
+}
+
+export const openNote = ({ commit }, note) => {
+	commit(mutations.SET_CURRENT_NOTE, note)
 }
 
 

@@ -8,7 +8,7 @@
 
 		<footer class="pad__footer">
 			<ul class="pad__footer-items">
-				<li class="pad__footer-item">Words: x</li>
+				<li class="pad__footer-item">Words: {{wordCount}}</li>
 				<li class="pad__footer-item pad__footer-item--right">Last saved: {{lastSaved}}</li>
 			</ul>
 		</footer>
@@ -23,7 +23,8 @@
 		computed: {
 			...mapGetters([
 				'note',
-				'lastSaved'
+				'lastSaved',
+				'wordCount'
 			])
 		},
 
@@ -53,7 +54,7 @@
 		flex-direction: column;
 
 		&__title {
-			width: 100%;
+			max-width: 100%;
 			border: 0;
 			font: inherit;
 			font-size: 1.6em;
@@ -65,7 +66,7 @@
 
 		&__text {
 			flex: 1;
-			width: 100%;
+			max-width: 100%;
 			padding: 20px 30px;
 			border: 0;
 			font: inherit;

@@ -17,3 +17,11 @@ export const lastSaved = state => {
 
 	return moment(state.note.lastSaved).calendar()
 }
+
+export const wordCount = state => {
+	if(!state.note.body || state.note.body.trim() === '') {
+		return 0
+	}
+
+	return state.note.body.trim().split(' ').length
+}

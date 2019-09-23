@@ -6,6 +6,9 @@
 		<div class="sidebar__content" v-else>
 			Start a new note
 		</div>
+		<div class="sidebar__content">
+			Start a new note
+		</div>
 	</div>
 </template>
 
