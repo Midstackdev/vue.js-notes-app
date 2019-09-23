@@ -1,21 +1,28 @@
 <template>
 	<div class="sidebar">
-		<note></note>
-		<note></note>
-		<note></note>
-		<!-- <div class="sidebar__content">
+		<div v-if="notes.length">
+			<note v-for="note in notes" :note="note"></note>
+		</div>
+		<div class="sidebar__content" v-else>
 			Start a new note
-		</div> -->
+		</div>
 	</div>
 </template>
 
 
 <script>
 	import Note from './Note'
+	import { mapGetters } from 'vuex'
 
 	export default {
 		components: {
 			Note
+		},
+
+		computed: {
+			...mapGetters ([
+				'notes'
+			])
 		}
 	}
 </script>

@@ -1,8 +1,8 @@
 <template>
 	<div class="pad">
-		<input type="text" class="pad__title" placeholder="Untitled note">
+		<input type="text" class="pad__title" placeholder="Untitled note" v-model="note.title">
 
-		<textarea class="pad__text" placeholder="Start writing...">
+		<textarea class="pad__text" placeholder="Start writing..." v-model="note.body">
 			
 		</textarea>
 
@@ -17,8 +17,14 @@
 
 
 <script>
-	export default {
+	import { mapGetters } from 'vuex'
 
+	export default {
+		computed: {
+			...mapGetters([
+				'note'
+			])
+		}
 	}
 </script>
 

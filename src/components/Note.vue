@@ -4,8 +4,8 @@
 			<span class="note__delete-icon">&times;</span>
 		</a>
 		<div class="note__content">
-			<a href=""  class="note__title">Lorem ipsum dolor</a>
-			<p class="note__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, distinctio. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, impedit esse qui asperiores reprehenderit deserunt consequatur. Obcaecati quis, voluptatem! Sint possimus, consectetur reiciendis id assumenda voluptas, quam accusantium quod necessitatibus neque minima, recusandae veniam quae, totam molestias eaque incidunt tempore.</p>
+			<a href=""  class="note__title">{{ note.title }}</a>
+			<p class="note__body">{{ note.body }}</p>
 		</div>
 	</div>
 </template>
@@ -13,7 +13,7 @@
 
 <script>
 	export default {
-
+		props: ['note']
 	}
 </script>
 
