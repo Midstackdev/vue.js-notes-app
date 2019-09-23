@@ -1,4 +1,7 @@
 import * as types from './mutation-types'
+import { defaultNoteState } from './defaults'
+import { clone } from 'lodash'
+
 
 export default {
 	[types.SET_CURRENT_NOTE_ID] (state, id) {
@@ -18,10 +21,24 @@ export default {
 	},
 
 	[types.CLEAR_SAVE_TIMEOUT] (state) {
+		clearInterval(state.saveTimeout)
+
 		state.saveTimeout = null
 	},
 
 	[types.SET_CURRENT_NOTE] (state, note) {
+		if(note === null) {
+			state.note = _.clone(defaultNoteState)
+
+			return
+		}
+
 		state.note = note
+	},
+
+	[types.DELETE_NOTE] (state, id) {
+		state.notes = state.notes.filter((note) => {
+			return note.id !== id
+		})
 	}
 }

@@ -1,6 +1,6 @@
 <template>
 	<div class="note">
-		<a href="#" class="note__delete">
+		<a href="#" class="note__delete" @click.prevent="deleteNote(note.id)">
 			<span class="note__delete-icon">&times;</span>
 		</a>
 		<div class="note__content">
@@ -25,7 +25,8 @@
 
 		methods: {
 			...mapActions([
-				'openNote'
+				'openNote',
+				'deleteNote'
 			])
 		}
 	}

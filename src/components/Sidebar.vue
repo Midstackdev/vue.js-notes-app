@@ -7,7 +7,7 @@
 			Start a new note
 		</div>
 		<div class="sidebar__content">
-			Start a new note
+			<a @click.prevent="clearCurrentNote">Start a new note</a>
 		</div>
 	</div>
 </template>
@@ -15,7 +15,7 @@
 
 <script>
 	import Note from './Note'
-	import { mapGetters } from 'vuex'
+	import { mapGetters, mapActions } from 'vuex'
 
 	export default {
 		components: {
@@ -25,6 +25,12 @@
 		computed: {
 			...mapGetters ([
 				'notes'
+			])
+		},
+
+		methods: {
+			...mapActions([
+				'clearCurrentNote'
 			])
 		}
 	}
